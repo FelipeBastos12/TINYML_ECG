@@ -1,0 +1,65 @@
+>>> stedgeai generate --model modelo_ecg_sem_balanceamento_final_PerChannel_quant_int8_int8_quant_dataset_from_train_new_npz_1.tflite --optimization balanced --target stm32f4 --name network --workspace workspace --output output
+ST Edge AI Core v4.0.1-20581 7ed50de05
+Creating c (debug) info json file network_c_info.json
+ Exec/report summary (generate)
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ model file         :   modelo_ecg_sem_balanceamento_final_PerChannel_quant_int8_int8_quant_dataset_from_train_new_npz_1.tflite   
+ type               :   tflite                                                                                                                                                              
+ c_name             :   network                                                                                                                                                             
+ compression        :   lossless                                                                                                                                                            
+ options            :   allocate-inputs, allocate-outputs, use-lite-runtime, use-st-ai                                                                                                      
+ optimization       :   balanced                                                                                                                                                            
+ target/series      :   stm32f4                                                                                                                                                             
+ workspace dir      :   workspace                                                                                                 
+ output dir         :   output                                                                                                    
+ model_fmt          :   ss/sa per channel                                                                                                                                                   
+ model_name         :   modelo_ecg_sem_balanceamento_final_PerChannel_quant_int8_int8_quant_dataset_from_train_new_npz_1                                                                    
+ model_hash         :   0x85112d68d16cf2dde4e6321bc6115286                                                                                                                                  
+ params #           :   38,277 items (37.56 KiB)                                                                                                                                            
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ input 1/1          :   'serving_default_input_50', int8(1x306x1), 306 Bytes, QLinear(0.003921569,-128,int8), activations                                                                   
+ output 1/1         :   'nl_14', int8(1x5), 5 Bytes, QLinear(0.003906250,-128,int8), activations                                                                                            
+ macc               :   148,584                                                                                                                                                             
+ weights (ro)       :   38,460 B (37.56 KiB) (1 segment) / -114,648(-74.9%) vs float model                                                                                                  
+ activations (rw)   :   5,224 B (5.10 KiB) (1 segment) *                                                                                                                                    
+ ram (total)        :   5,224 B (5.10 KiB) = 5,224 + 0 + 0                                                                                                                                  
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ (*) 'input'/'output' buffers are allocated in the activations buffer
+Computing AI RT data/code size (target=stm32f4)..
+ Requested memory size by section - "stm32f4" target
+ ------------------------------ -------- -------- ------ -------
+ module                             text   rodata   data     bss
+ ------------------------------ -------- -------- ------ -------
+ NetworkRuntime1201_CM4_GCC.a     11,668        0      0       0
+ network.o                         1,594      400    924       0
+ lib (toolchain)*                      0        0      0       0
+ ------------------------------ -------- -------- ------ -------
+ RT total**                       13,262      400    924       0
+ ------------------------------ -------- -------- ------ -------
+ weights                               0   38,464      0       0
+ activations                           0        0      0   5,224
+ states                                0        0      0       0
+ io                                    0        0      0       0
+ ------------------------------ -------- -------- ------ -------
+ TOTAL                            13,262   38,864    924   5,224
+ ------------------------------ -------- -------- ------ -------
+ *  toolchain objects (libm/libgcc*)
+ ** RT AI runtime objects (kernels+infrastructure)
+  Summary - "stm32f4" target
+  ---------------------------------------------------
+               FLASH (ro)      %*   RAM (rw)       %
+  ---------------------------------------------------
+  RT total         14,586   27.5%        924   15.0%
+  ---------------------------------------------------
+  TOTAL            53,050              6,148
+  ---------------------------------------------------
+  *  rt/total
+ Generated files (5)
+ ------------------------------------------------------------------------------------
+ network_data.h
+ network_data.c
+ network.h
+ network.c
+ network_details.h
+Creating txt report file network_generate_report.txt
+elapsed time (GENERATE): 2.478s
