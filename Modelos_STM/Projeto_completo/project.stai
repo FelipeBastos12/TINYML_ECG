@@ -1,0 +1,15 @@
+{
+  "toolchain": "STM32CubeIDE",
+  "variant": "Validation",
+  "fromMx": false,
+  "name": "NUCLEO-F411RE",
+  "createdAt": 1771965818356,
+  "lastModified": 1771966184453,
+  "lastAccessed": 1771965818360,
+  "board": "NUCLEO-F411RE",
+  "uartInstance": {
+    "usart": "USART2",
+    "txpin": "PA2",
+    "rxpin": "PA3"
+  }
+}
